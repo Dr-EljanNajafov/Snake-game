@@ -57,9 +57,13 @@ public class GamePanel extends JPanel implements ActionListener {
                     g.setColor(new Color(0x34E30D));
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
                 }
+                g.setColor(Color.red);
+                g.setFont( new Font("TimesRoman",Font.BOLD, 20));
+                FontMetrics metrics = getFontMetrics(g.getFont());
+                g.drawString("Score: "+applesEaten, (SCREEN_WIDTH - metrics.stringWidth("Score: "+applesEaten))/2, g.getFont().getSize());
             }
         } else {
-            gameOver();
+            gameOver(g);
         }
     }
     public void newApple() {
@@ -120,8 +124,17 @@ public class GamePanel extends JPanel implements ActionListener {
             timer.stop();
         }
     }
-    public void gameOver() {
-
+    public void gameOver(Graphics g) {
+        //Score
+        g.setColor(Color.red);
+        g.setFont( new Font("TimesRoman",Font.BOLD, 40));
+        FontMetrics metrics1 = getFontMetrics(g.getFont());
+        g.drawString("Score: "+applesEaten, (SCREEN_WIDTH - metrics1.stringWidth("Score: "+applesEaten))/2, g.getFont().getSize());
+        //Game Over text
+        g.setColor(Color.red);
+        g.setFont( new Font("TimesRoman",Font.BOLD, 75));
+        FontMetrics metrics2 = getFontMetrics(g.getFont());
+        g.drawString("Game Over", (SCREEN_WIDTH - metrics2.stringWidth("Game Over"))/2, SCREEN_HEIGHT/2);
     }
 
 
