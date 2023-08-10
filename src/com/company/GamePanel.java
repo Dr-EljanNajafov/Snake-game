@@ -58,7 +58,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
                 }
                 g.setColor(Color.red);
-                g.setFont( new Font("TimesRoman",Font.BOLD, 20));
+                g.setFont( new Font("TimesRoman",Font.BOLD, 25));
                 FontMetrics metrics = getFontMetrics(g.getFont());
                 g.drawString("Score: "+applesEaten, (SCREEN_WIDTH - metrics.stringWidth("Score: "+applesEaten))/2, g.getFont().getSize());
             }
